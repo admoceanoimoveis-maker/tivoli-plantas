@@ -24,9 +24,6 @@
       --morning: #1497D8;
       --mid: #AF741B;
       --afternoon: #D55210;
-      --ok: #0f766e;
-      --warn: #c2410c;
-      --bad: #7f1d1d;
       --shadow: 0 18px 50px rgba(95, 25, 7, 0.12);
       --radius-xl: 28px;
       --radius-lg: 22px;
@@ -45,30 +42,30 @@
       color: var(--ink);
       line-height: 1.5;
     }
+
     img { display: block; max-width: 100%; height: auto; }
     a { color: inherit; text-decoration: none; }
     button, input { font: inherit; }
     .shell { width: min(calc(100% - 28px), var(--max)); margin: 0 auto; }
 
     .topbar {
-      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px);
+      position: sticky; top: 0; z-index: 30; backdrop-filter: blur(14px);
       background: rgba(255, 248, 242, 0.9); border-bottom: 1px solid rgba(143, 45, 20, 0.08);
     }
     .topbar-inner {
       width: min(calc(100% - 28px), var(--max)); margin: 0 auto; padding: 14px 0;
       display: flex; align-items: center; justify-content: space-between; gap: 12px;
     }
-    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
-    .brand-mark {
-      width: 46px; height: 46px; border-radius: 14px;
-      background: linear-gradient(145deg, #fff6ee, #f2dfd0);
-      border: 1px solid rgba(143, 45, 20, 0.12); padding: 8px; flex: 0 0 auto;
-    }
+    .brand { display: flex; align-items: center; min-width: 0; }
     .brand-copy small {
       display: block; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--muted); font-weight: 800; margin-bottom: 2px;
     }
     .brand-copy strong { display: block; font-size: 15px; line-height: 1.1; text-wrap: balance; }
+
+    .topbar-actions {
+      display: flex; align-items: center; gap: 10px;
+    }
 
     .wa-button {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -79,26 +76,41 @@
       text-wrap: pretty;
     }
 
+    .menu-wrap { position: relative; }
+    .menu-toggle {
+      width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(143, 45, 20, 0.12);
+      background: rgba(255, 255, 255, 0.86); color: var(--brand);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 22px; cursor: pointer; box-shadow: 0 10px 24px rgba(95, 25, 7, 0.08);
+    }
+    .menu-panel {
+      position: absolute; top: calc(100% + 10px); right: 0; min-width: 210px;
+      padding: 8px; border-radius: 18px; background: rgba(255, 250, 245, 0.98);
+      border: 1px solid rgba(143, 45, 20, 0.12); box-shadow: var(--shadow);
+      display: none;
+    }
+    .menu-panel.open { display: grid; gap: 4px; }
+    .menu-link {
+      display: block; padding: 12px 14px; border-radius: 12px; color: var(--ink);
+      font-size: 14px; font-weight: 700;
+    }
+    .menu-link:hover { background: rgba(143, 45, 20, 0.08); }
+
     .hero { padding: 24px 0 18px; }
     .hero-panel {
       position: relative; overflow: hidden; border-radius: var(--radius-xl);
       background:
-        linear-gradient(150deg, rgba(255, 255, 255, 0.1), transparent 34%),
+        linear-gradient(150deg, rgba(255, 255, 255, 0.08), transparent 34%),
         linear-gradient(140deg, #922f14 0%, #7a2510 42%, #4d1407 100%);
-      color: #fff8f2; padding: 26px 20px 24px; box-shadow: var(--shadow);
+      color: #fff8f2; padding: 30px 20px; box-shadow: var(--shadow);
     }
-    .hero-content { position: relative; z-index: 1; display: grid; gap: 22px; }
+    .hero-content { position: relative; z-index: 1; display: grid; gap: 20px; }
+    .hero-copy { display: grid; gap: 18px; }
     .hero-copy h1 {
-      font-size: clamp(32px, 8vw, 54px); line-height: 1.02; letter-spacing: -0.04em;
+      font-size: clamp(34px, 8vw, 56px); line-height: 1.02; letter-spacing: -0.04em;
       max-width: 11ch; text-wrap: balance;
     }
-    .hero-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    .metric {
-      padding: 14px; border-radius: 20px; background: rgba(255, 248, 242, 0.1);
-      border: 1px solid rgba(255, 235, 217, 0.14);
-    }
-    .metric strong { display: block; font-size: 22px; line-height: 1; letter-spacing: -0.03em; margin-bottom: 6px; }
-    .metric span { display: block; font-size: 12px; color: rgba(255, 248, 242, 0.72); text-wrap: pretty; }
+    .hero-cta { justify-self: start; }
 
     main { padding-bottom: 42px; }
     section { padding: 18px 0; }
@@ -123,24 +135,14 @@
 
     .solar-layout { display: grid; gap: 0; }
     .tower-frame {
-      padding: 18px; border-bottom: 1px solid rgba(143, 45, 20, 0.08);
+      padding: 18px;
       background: linear-gradient(180deg, rgba(255, 248, 242, 0.7), rgba(242, 227, 214, 0.88));
     }
     .tower-frame img {
       width: 100%; border-radius: 22px; border: 1px solid rgba(143, 45, 20, 0.08);
       background: #fff; box-shadow: 0 12px 34px rgba(95, 25, 7, 0.12);
     }
-    .solar-legend { padding: 18px; display: grid; gap: 16px; }
-    .solar-map { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
-    .solar-square {
-      aspect-ratio: 1 / 1; border-radius: 18px; display: grid; place-items: center; color: #fff;
-      font-size: 18px; font-weight: 800; box-shadow: 0 10px 20px rgba(45, 22, 13, 0.1);
-    }
-    .solar-square.manha { background: linear-gradient(135deg, #1497D8, #0d7fb8); }
-    .solar-square.sem_sol { background: linear-gradient(135deg, #AF741B, #8f5e14); }
-    .solar-square.tarde { background: linear-gradient(135deg, #D55210, #b4420b); }
-
-    .solar-key { display: grid; gap: 12px; }
+    .solar-legend { padding: 18px; display: grid; gap: 12px; }
     .solar-item {
       display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: 16px;
       background: var(--paper); border: 1px solid var(--line);
@@ -201,12 +203,12 @@
     }
 
     .unit-card {
-      display: grid; gap: 0; background: rgba(255, 255, 255, 0.85);
-      border: 1px solid rgba(143, 45, 20, 0.1); border-radius: 24px; overflow: hidden; box-shadow: var(--shadow);
+      display: grid; gap: 0; background: #fff;
+      border: 1px solid rgba(179, 62, 39, 0.18); border-radius: 24px; overflow: hidden; box-shadow: var(--shadow);
     }
     .unit-plant {
-      background: linear-gradient(180deg, #fff6ee, #f0ddd0); padding: 14px;
-      border-bottom: 1px solid rgba(143, 45, 20, 0.08);
+      background: #fff; padding: 14px;
+      border-bottom: 1px solid rgba(179, 62, 39, 0.12);
     }
     .unit-plant img {
       width: 100%; border-radius: 18px; background: #fff; border: 1px solid rgba(143, 45, 20, 0.08);
@@ -274,7 +276,6 @@
       background: linear-gradient(135deg, var(--accent), #ff8e50); color: #fff; border-color: transparent;
       box-shadow: 0 10px 24px rgba(255, 107, 44, 0.24);
     }
-    .card-button.ghost { background: #fff; color: var(--brand); }
 
     .gallery-grid { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .gallery-tile {
@@ -287,17 +288,15 @@
     .footer strong { color: var(--ink); }
 
     @media (min-width: 760px) {
-      .hero-panel { padding: 36px; }
+      .hero-panel { padding: 40px 36px; }
       .hero-content, .solar-layout { grid-template-columns: 1fr 1fr; align-items: start; }
       .solar-layout { display: grid; }
-      .tower-frame { border-bottom: 0; border-right: 1px solid rgba(143, 45, 20, 0.08); }
       .selector-grid { grid-template-columns: 1.1fr 1fr; }
       .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     @media (min-width: 1080px) {
-      .hero-content { grid-template-columns: 1.15fr 0.85fr; }
       .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .gallery-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
@@ -307,13 +306,26 @@
   <header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="#top">
-        <img class="brand-mark" src="assets/brand/logo-oceano.webp" alt="Oceano Imoveis">
         <div class="brand-copy">
           <small>Oceano Imoveis</small>
           <strong>Monte Tivoli | Vila Velha</strong>
         </div>
       </a>
-      <a class="wa-button" href="#selecione-unidade">Escolher planta</a>
+
+      <div class="topbar-actions">
+        <a class="wa-button" href="#selecione-unidade">Escolher planta</a>
+
+        <div class="menu-wrap">
+          <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu">⋮</button>
+          <div class="menu-panel" id="menuPanel">
+            <a class="menu-link" href="#top">Inicio</a>
+            <a class="menu-link" href="#ficha-tecnica">Ficha tecnica</a>
+            <a class="menu-link" href="#implantacao-solar">Implantacao solar</a>
+            <a class="menu-link" href="#selecione-unidade">Selecionar unidade</a>
+            <a class="menu-link" href="#galeria">Galeria</a>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -323,19 +335,14 @@
         <div class="hero-content">
           <div class="hero-copy">
             <h1>Descubra a planta ideal para o seu momento.</h1>
-          </div>
-          <div class="hero-metrics">
-            <div class="metric"><strong>200</strong><span>Apartamentos na torre</span></div>
-            <div class="metric"><strong>24</strong><span>Pavimentos totais</span></div>
-            <div class="metric"><strong>23</strong><span>Andares</span></div>
-            <div class="metric"><strong>R$ 5 mil</strong><span>Entrada promocional de R$ 5 mil ate dia 30</span></div>
+            <a class="wa-button hero-cta" href="#selecione-unidade">Escolher planta</a>
           </div>
         </div>
       </div>
     </section>
 
     <main>
-      <section>
+      <section id="ficha-tecnica">
         <div class="section-head"><span class="eyebrow">01 - Ficha tecnica</span></div>
         <div class="panel">
           <div class="facts-grid">
@@ -358,30 +365,16 @@
         </div>
       </section>
 
-      <section>
+      <section id="implantacao-solar">
         <div class="section-head"><span class="eyebrow">02 - Implantacao solar</span></div>
         <div class="panel solar-layout">
           <div class="tower-frame">
             <img src="assets/tower/mapa-solar.png" alt="Mapa solar da torre">
           </div>
           <div class="solar-legend">
-            <div class="solar-map">
-              <div class="solar-square manha">01</div>
-              <div class="solar-square manha">02</div>
-              <div class="solar-square manha">03</div>
-              <div class="solar-square tarde">04</div>
-              <div class="solar-square tarde">05</div>
-              <div class="solar-square sem_sol">06</div>
-              <div class="solar-square sem_sol">07</div>
-              <div class="solar-square sem_sol">08</div>
-              <div class="solar-square manha">09</div>
-              <div class="solar-square manha">10</div>
-            </div>
-            <div class="solar-key">
-              <div class="solar-item"><span class="solar-dot manha"></span><div><strong>Sol da manha</strong><span>Colunas 01, 02, 03, 09 e 10</span></div></div>
-              <div class="solar-item"><span class="solar-dot tarde"></span><div><strong>Sol da tarde</strong><span>Colunas 04 e 05</span></div></div>
-              <div class="solar-item"><span class="solar-dot sem_sol"></span><div><strong>Sem sol</strong><span>Colunas 06, 07 e 08</span></div></div>
-            </div>
+            <div class="solar-item"><span class="solar-dot manha"></span><div><strong>Sol da manha</strong><span>Colunas 01, 02, 03, 09 e 10</span></div></div>
+            <div class="solar-item"><span class="solar-dot tarde"></span><div><strong>Sol da tarde</strong><span>Colunas 04 e 05</span></div></div>
+            <div class="solar-item"><span class="solar-dot sem_sol"></span><div><strong>Sem sol</strong><span>Colunas 06, 07 e 08</span></div></div>
           </div>
         </div>
       </section>
@@ -426,7 +419,7 @@
         <div class="empty" id="emptyState">Nenhuma unidade combina com os filtros ativos neste pavimento.</div>
       </section>
 
-      <section>
+      <section id="galeria">
         <div class="section-head"><span class="eyebrow">04 - Galeria</span></div>
         <div class="gallery-grid" id="galleryGrid"></div>
       </section>
@@ -452,6 +445,8 @@
     const countValueEl = document.getElementById("countValue");
     const summaryFloorEl = document.getElementById("summaryFloor");
     const summaryPriceEl = document.getElementById("summaryPrice");
+    const menuToggleEl = document.getElementById("menuToggle");
+    const menuPanelEl = document.getElementById("menuPanel");
 
     const money = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
 
@@ -464,60 +459,52 @@
       return `https://wa.me/5527992436034?text=${message}`;
     }
 
-    function labelStatus(value) {
-      return { disponivel: "Disponivel", reservada: "Reservada", bloqueada: "Bloqueada", vendida: "Vendida" }[value] || value;
-    }
-
     function labelSolar(value) {
       return { manha: "Sol da manha", sem_sol: "Sem sol", tarde: "Sol da tarde" }[value] || value;
     }
 
-
-  function renderCard(unit) {
-    return `
-      <article class="unit-card">
-        <div class="unit-plant">
-          <img src="${unit.planta}" alt="Planta da coluna ${unit.coluna}">
-        </div>
-        <div class="unit-copy">
-          <div class="unit-head">
-            <div class="unit-title">
-              <small>Unidade ${unit.id}</small>
-              <h3>Coluna ${unit.coluna}</h3>
-              <p>Pavimento ${unit.pavimento}º</p>
+    function renderCard(unit) {
+      return `
+        <article class="unit-card">
+          <div class="unit-plant">
+            <img src="${unit.planta}" alt="Planta da coluna ${unit.coluna}">
+          </div>
+          <div class="unit-copy">
+            <div class="unit-head">
+              <div class="unit-title">
+                <small>Unidade ${unit.id}</small>
+                <h3>Coluna ${unit.coluna}</h3>
+                <p>Pavimento ${unit.pavimento}º</p>
+              </div>
+              <span class="pill ${unit.posicao_solar}">${labelSolar(unit.posicao_solar)}</span>
             </div>
-            <span class="pill ${unit.posicao_solar}">${labelSolar(unit.posicao_solar)}</span>
+
+            <div class="value-box">
+              <small>A partir de</small>
+              <strong>${money.format(unit.valor_total)}</strong>
+            </div>
+
+            <div class="detail-grid">
+              <div class="detail-row"><small>Tipologia</small><strong>${unit.tipologia_curta}</strong></div>
+              <div class="detail-row"><small>Area privativa</small><strong>${unit.area_privativa.toLocaleString("pt-BR")} m²</strong></div>
+              <div class="detail-row"><small>Entrada</small><strong>${money.format(unit.entrada)}</strong></div>
+              <div class="detail-row"><small>Mensal</small><strong>${money.format(unit.mensal)}</strong></div>
+              <div class="detail-row"><small>Anual</small><strong>${money.format(unit.anual)}</strong></div>
+              <div class="detail-row"><small>Financiamento</small><strong>${money.format(unit.financiamento)}</strong></div>
+            </div>
+
+            <div class="promo-box">
+              <strong>${money.format(5000)}</strong>
+              <span>Entrada promocional de R$ 5.000 ate dia 30.</span>
+            </div>
+
+            <div class="unit-actions">
+              <a class="card-button primary" href="${toWhatsApp(unit)}" target="_blank" rel="noopener">Quero esta unidade</a>
+            </div>
           </div>
-
-          <div class="value-box">
-            <small>A partir de</small>
-            <strong>${money.format(unit.valor_total)}</strong>
-          </div>
-
-          <div class="detail-grid">
-            <div class="detail-row"><small>Tipologia</small><strong>${unit.tipologia_curta}</strong></div>
-            <div class="detail-row"><small>Area privativa</small><strong>${unit.area_privativa.toLocaleString("pt-BR")} m²</strong></div>
-            <div class="detail-row"><small>Entrada</small><strong>${money.format(unit.entrada)}</strong></div>
-            <div class="detail-row"><small>Mensal</small><strong>${money.format(unit.mensal)}</strong></div>
-            <div class="detail-row"><small>Anual</small><strong>${money.format(unit.anual)}</strong></div>
-            <div class="detail-row"><small>Financiamento</small><strong>${money.format(unit.financiamento)}</strong></div>
-          </div>
-
-          <div class="promo-box">
-            <strong>${money.format(5000)}</strong>
-            <span>Entrada promocional de R$ 5.000 ate dia 30.</span>
-          </div>
-
-          <div class="unit-actions">
-            <a class="card-button primary" href="${toWhatsApp(unit)}" target="_blank" rel="noopener">Quero esta unidade</a>
-            <a class="card-button ghost" href="#top">Comparar outra unidade</a>
-          </div>
-        </div>
-      </article>
-    `;
-  }
-
-
+        </article>
+      `;
+    }
 
     function currentUnits() {
       return state.units
@@ -555,6 +542,22 @@
         });
       });
     }
+
+    menuToggleEl.addEventListener("click", () => {
+      menuPanelEl.classList.toggle("open");
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".menu-wrap")) {
+        menuPanelEl.classList.remove("open");
+      }
+    });
+
+    document.querySelectorAll(".menu-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        menuPanelEl.classList.remove("open");
+      });
+    });
 
     async function init() {
       const response = await fetch("data/units.json");
