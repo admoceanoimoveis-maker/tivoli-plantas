@@ -1,10 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#7c2d12">
-  <meta name="description" content="Monte Tivoli com ficha tecnica, implantacao solar, plantas e valores por unidade.">
+  <meta name="description" content="Monte Tivoli com ficha técnica, implantação solar, plantas e valores por unidade.">
   <title>Monte Tivoli | Escolha Sua Unidade</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,6 +50,7 @@
     a { color: inherit; text-decoration: none; }
     button, input { font: inherit; }
     .shell { width: min(calc(100% - 28px), var(--max)); margin: 0 auto; }
+
     .topbar {
       position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px);
       background: rgba(255, 248, 242, 0.9); border-bottom: 1px solid rgba(143, 45, 20, 0.08);
@@ -68,6 +70,7 @@
       color: var(--muted); font-weight: 800; margin-bottom: 2px;
     }
     .brand-copy strong { display: block; font-size: 15px; line-height: 1.1; text-wrap: balance; }
+
     .wa-button {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       padding: 12px 18px; border-radius: 999px;
@@ -76,7 +79,7 @@
       box-shadow: 0 10px 24px rgba(255, 107, 44, 0.26); white-space: nowrap;
       text-wrap: pretty;
     }
-    .wa-button svg { width: 16px; height: 16px; flex: 0 0 auto; }
+
     .hero { padding: 24px 0 18px; }
     .hero-panel {
       position: relative; overflow: hidden; border-radius: var(--radius-xl);
@@ -97,6 +100,7 @@
     }
     .metric strong { display: block; font-size: 22px; line-height: 1; letter-spacing: -0.03em; margin-bottom: 6px; }
     .metric span { display: block; font-size: 12px; color: rgba(255, 248, 242, 0.72); text-wrap: pretty; }
+
     main { padding-bottom: 42px; }
     section { padding: 18px 0; }
     .section-head { margin-bottom: 18px; }
@@ -105,6 +109,7 @@
       text-transform: uppercase; font-weight: 800; color: var(--brand); text-wrap: balance;
     }
     .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; opacity: 0.55; }
+
     .panel {
       background: rgba(255, 255, 255, 0.82); border: 1px solid rgba(143, 45, 20, 0.08);
       border-radius: var(--radius-xl); box-shadow: var(--shadow); overflow: hidden;
@@ -116,6 +121,7 @@
     }
     .tech-row strong { color: var(--ink); }
     .tech-row-sub { padding-left: 18px; }
+
     .solar-layout { display: grid; gap: 0; }
     .tower-frame {
       padding: 18px; border-bottom: 1px solid rgba(143, 45, 20, 0.08);
@@ -134,6 +140,7 @@
     .solar-square.manha { background: linear-gradient(135deg, #1497D8, #0d7fb8); }
     .solar-square.sem_sol { background: linear-gradient(135deg, #AF741B, #8f5e14); }
     .solar-square.tarde { background: linear-gradient(135deg, #D55210, #b4420b); }
+
     .solar-key { display: grid; gap: 12px; }
     .solar-item {
       display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: 16px;
@@ -145,6 +152,7 @@
     .solar-dot.tarde { background: var(--afternoon); }
     .solar-item strong { display: block; font-size: 14px; margin-bottom: 2px; text-wrap: balance; }
     .solar-item span { display: block; font-size: 13px; color: var(--ink-soft); text-wrap: pretty; }
+
     .selector { margin-top: 4px; }
     .selector-panel {
       padding: 18px; border-radius: 24px; background: rgba(255, 250, 245, 0.92);
@@ -168,6 +176,7 @@
       appearance: none; width: 22px; height: 22px; border-radius: 50%; border: 4px solid #fff;
       background: var(--brand); box-shadow: 0 6px 18px rgba(143, 45, 20, 0.34);
     }
+
     .chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
     .filter-chip {
       border: 1px solid rgba(143, 45, 20, 0.12); background: #fff; color: var(--ink-soft);
@@ -178,17 +187,20 @@
       background: var(--brand); color: #fff; border-color: var(--brand);
       box-shadow: 0 10px 22px rgba(143, 45, 20, 0.22);
     }
+
     .summary-bar {
       display: flex; justify-content: space-between; gap: 12px; margin-top: 14px; padding-top: 14px;
       border-top: 1px dashed rgba(143, 45, 20, 0.18); color: var(--ink-soft); font-size: 13px;
       text-wrap: pretty;
     }
     .summary-bar strong { color: var(--brand); }
+
     .cards { display: grid; gap: 14px; margin-top: 18px; }
     .empty {
       display: none; padding: 22px; border-radius: 22px; background: rgba(255, 250, 245, 0.82);
       border: 1px dashed rgba(143, 45, 20, 0.24); color: var(--ink-soft); text-align: center;
     }
+
     .unit-card {
       display: grid; gap: 0; background: rgba(255, 255, 255, 0.85);
       border: 1px solid rgba(143, 45, 20, 0.1); border-radius: 24px; overflow: hidden; box-shadow: var(--shadow);
@@ -213,6 +225,7 @@
       font-size: 30px; line-height: 0.95; letter-spacing: -0.04em; text-wrap: balance;
     }
     .unit-title p { margin-top: 8px; color: var(--ink-soft); font-size: 13px; text-wrap: pretty; }
+
     .pill {
       border-radius: 999px; padding: 8px 12px; font-size: 11px; text-transform: uppercase;
       letter-spacing: 0.12em; font-weight: 800; white-space: nowrap;
@@ -220,6 +233,7 @@
     .pill.manha { background: rgba(20, 151, 216, 0.14); color: #0d7fb8; }
     .pill.sem_sol { background: rgba(175, 116, 27, 0.16); color: #8f5e14; }
     .pill.tarde { background: rgba(213, 82, 16, 0.14); color: #b4420b; }
+
     .detail-grid { display: grid; gap: 10px; margin-bottom: 16px; }
     .detail-row {
       display: grid; grid-template-columns: 118px 1fr; gap: 12px; align-items: start;
@@ -231,6 +245,7 @@
       font-weight: 800; padding-top: 3px;
     }
     .detail-row strong { display: block; font-size: 14px; text-wrap: pretty; }
+
     .value-box {
       border-radius: 22px; background: linear-gradient(160deg, #8f2d14 0%, #6f1f0b 100%);
       color: #fff7f1; padding: 18px; margin-bottom: 14px;
@@ -242,12 +257,14 @@
     .value-box strong {
       display: block; font-size: 33px; line-height: 0.95; letter-spacing: -0.04em; text-wrap: balance;
     }
+
     .promo-box {
       padding: 14px 16px; border-radius: 18px; background: linear-gradient(90deg, #ffe8d5, #fff8f2);
       border: 1px solid rgba(143, 45, 20, 0.1); margin-bottom: 14px;
     }
     .promo-box strong { display: block; color: var(--brand); font-size: 16px; margin-bottom: 2px; }
     .promo-box span { color: var(--ink-soft); font-size: 13px; text-wrap: pretty; }
+
     .unit-actions { display: flex; flex-direction: column; gap: 10px; }
     .card-button {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
@@ -259,14 +276,17 @@
       box-shadow: 0 10px 24px rgba(255, 107, 44, 0.24);
     }
     .card-button.ghost { background: #fff; color: var(--brand); }
+
     .gallery-grid { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .gallery-tile {
       overflow: hidden; border-radius: 20px; min-height: 180px; box-shadow: var(--shadow);
       border: 1px solid rgba(143, 45, 20, 0.08); background: #e7d2c1;
     }
     .gallery-tile img { width: 100%; height: 100%; object-fit: cover; }
+
     .footer { padding: 28px 0 50px; color: var(--ink-soft); font-size: 13px; text-align: center; text-wrap: pretty; }
     .footer strong { color: var(--ink); }
+
     @media (min-width: 760px) {
       .hero-panel { padding: 36px; }
       .hero-content, .solar-layout { grid-template-columns: 1fr 1fr; align-items: start; }
@@ -276,6 +296,7 @@
       .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
+
     @media (min-width: 1080px) {
       .hero-content { grid-template-columns: 1.15fr 0.85fr; }
       .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -302,13 +323,13 @@
       <div class="hero-panel">
         <div class="hero-content">
           <div class="hero-copy">
-            <h1>Escolha a planta ideal com o valor certo da unidade.</h1>
+            <h1>Escolha<br>a sua planta<br>ideal.</h1>
           </div>
           <div class="hero-metrics">
             <div class="metric"><strong>200</strong><span>Apartamentos na torre</span></div>
             <div class="metric"><strong>24</strong><span>Pavimentos totais</span></div>
             <div class="metric"><strong>23</strong><span>Andares</span></div>
-            <div class="metric"><strong>R$ 5 mil</strong><span>Desconto promocional na entrada ate dia 30</span></div>
+            <div class="metric"><strong>R$ 5 mil</strong><span>Entrada promocional de<br>R$ 5 mil ate dia 30</span></div>
           </div>
         </div>
       </div>
@@ -316,7 +337,7 @@
 
     <main>
       <section>
-        <div class="section-head"><span class="eyebrow">01 ? Ficha tecnica</span></div>
+        <div class="section-head"><span class="eyebrow">01 - Ficha tecnica</span></div>
         <div class="panel">
           <div class="facts-grid">
             <div class="tech-row"><strong>Empreendimento:</strong> Residencial Monte Tivoli</div>
@@ -339,7 +360,7 @@
       </section>
 
       <section>
-        <div class="section-head"><span class="eyebrow">02 ? Implantacao solar</span></div>
+        <div class="section-head"><span class="eyebrow">02 - Implantacao solar</span></div>
         <div class="panel solar-layout">
           <div class="tower-frame">
             <img src="assets/tower/mapa-solar.png" alt="Mapa solar da torre">
@@ -367,7 +388,7 @@
       </section>
 
       <section id="selecione-unidade">
-        <div class="section-head"><span class="eyebrow">03 ? Selecione a unidade</span></div>
+        <div class="section-head"><span class="eyebrow">03 - Selecione a unidade</span></div>
         <div class="selector">
           <div class="selector-panel">
             <div class="selector-grid">
@@ -375,7 +396,7 @@
                 <label for="floorRange">Pavimento</label>
                 <div class="floor-row">
                   <input id="floorRange" type="range" min="4" max="23" value="4" step="1">
-                  <div class="floor-value"><span id="floorValue">4?</span></div>
+                  <div class="floor-value"><span id="floorValue">4º pav.</span></div>
                 </div>
               </div>
               <div class="selector-group">
@@ -397,7 +418,7 @@
               </div>
             </div>
             <div class="summary-bar">
-              <span>Mostrando <strong id="countValue">10</strong> unidades no pavimento <strong id="summaryFloor">4?</strong>.</span>
+              <span>Mostrando <strong id="countValue">10</strong> unidades no pavimento <strong id="summaryFloor">4º</strong>.</span>
               <span id="summaryPrice">A partir de R$ 0,00</span>
             </div>
           </div>
@@ -407,13 +428,13 @@
       </section>
 
       <section>
-        <div class="section-head"><span class="eyebrow">04 ? Galeria</span></div>
+        <div class="section-head"><span class="eyebrow">04 - Galeria</span></div>
         <div class="gallery-grid" id="galleryGrid"></div>
       </section>
     </main>
 
     <footer class="footer">
-      <strong>Oceano Imoveis</strong> ? Vila Velha/ES ? WhatsApp
+      <strong>Oceano Imoveis</strong> - Vila Velha/ES - WhatsApp
       <a href="https://wa.me/5527992436034?text=Tenho%20interesse%20em%20uma%20unidade%20do%20Monte%20Tivoli." target="_blank" rel="noopener">(27) 99243-6034</a>
     </footer>
   </div>
@@ -438,7 +459,7 @@
     function toWhatsApp(unit) {
       const message = encodeURIComponent(
         `Tenho interesse na unidade ${unit.id} do Monte Tivoli. ` +
-        `Coluna ${unit.coluna}, ${unit.area_privativa.toLocaleString("pt-BR")} m?, ` +
+        `Coluna ${unit.coluna}, ${unit.area_privativa.toLocaleString("pt-BR")} m², ` +
         `${unit.tipologia_curta}, ${unit.posicao_solar_label}.`
       );
       return `https://wa.me/5527992436034?text=${message}`;
@@ -463,7 +484,7 @@
               <div class="unit-title">
                 <small>Unidade ${unit.id}</small>
                 <h3>Coluna ${unit.coluna}</h3>
-                <p>Pavimento ${unit.pavimento}?</p>
+                <p>Pavimento ${unit.pavimento}º</p>
               </div>
               <span class="pill ${unit.posicao_solar}">${labelSolar(unit.posicao_solar)}</span>
             </div>
@@ -475,7 +496,7 @@
 
             <div class="detail-grid">
               <div class="detail-row"><small>Coluna</small><strong>${unit.coluna}</strong></div>
-              <div class="detail-row"><small>Area privativa</small><strong>${unit.area_privativa.toLocaleString("pt-BR")} m?</strong></div>
+              <div class="detail-row"><small>Area privativa</small><strong>${unit.area_privativa.toLocaleString("pt-BR")} m²</strong></div>
               <div class="detail-row"><small>Tipologia</small><strong>${unit.tipologia_curta}</strong></div>
               <div class="detail-row"><small>Posicao solar</small><strong>${unit.posicao_solar_label}</strong></div>
               <div class="detail-row"><small>Situacao</small><strong>${labelStatus(unit.status)}</strong></div>
@@ -486,8 +507,8 @@
             </div>
 
             <div class="promo-box">
-              <strong>${money.format(unit.entrada_promocional)}</strong>
-              <span>Entrada promocional com desconto de R$ 5.000 ate dia 30.</span>
+              <strong>${money.format(5000)}</strong>
+              <span>Entrada promocional de R$ 5.000 ate dia 30.</span>
             </div>
 
             <div class="unit-actions">
@@ -514,8 +535,8 @@
     }
 
     function render() {
-      floorValueEl.textContent = `${state.floor}?`;
-      summaryFloorEl.textContent = `${state.floor}?`;
+      floorValueEl.textContent = `${state.floor}º pav.`;
+      summaryFloorEl.textContent = `${state.floor}º`;
       const visible = currentUnits();
       countValueEl.textContent = String(visible.length);
       cardsEl.innerHTML = visible.map(renderCard).join("");
@@ -557,3 +578,4 @@
   </script>
 </body>
 </html>
+```
